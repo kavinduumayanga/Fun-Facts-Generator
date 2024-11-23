@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Facts Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6e7f80, #c9c9c9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background: linear-gradient(135deg, #6e7f80, #c9c9c9);
+            }
+            100% {
+                background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+            }
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: containerFadeIn 1.5s ease-out;
+        }
+
+        @keyframes containerFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00;
+            }
+            100% {
+                text-shadow: 0 0 15px #ff8c00, 0 0 30px #ff8c00, 0 0 45px #ff8c00;
+            }
+        }
+
+        button {
+            background-color: #ff6347;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e55347;
+            transform: scale(1.1);
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 20px;
+            font-style: italic;
+            animation: fadeInText 2s ease-out;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fun Facts Generator</h1>
+        <button id="generateFactBtn">Generate Fun Fact</button>
+        <p id="funFact"></p>
+    </div>
+
+    <script>
+        const data = {
+            "funFacts": [
+                "A group of flamingos is called a 'flamboyance'.",
+                "Koalas sleep up to 22 hours a day.",
+                "Octopuses have three hearts.",
+                "A snail can sleep for three years.",
+                "Elephants are the only animals that can't jump."
+            ]
+        };
+
+        document.getElementById('generateFactBtn').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * data.funFacts.length);
+            document.getElementById('funFact').textContent = data.funFacts[randomIndex];
+        });
+    </script>
+</body>
+</html>
